@@ -215,7 +215,7 @@ export default function SpecialFilamentsWoodMetalCarbonFiber() {
             </div>
 
             <Image
-              src="/special-filaments-overview.jpg"
+              src="/special-filaments-overview.png"
               alt="Специальные филаменты для 3D печати"
               width={800}
               height={400}

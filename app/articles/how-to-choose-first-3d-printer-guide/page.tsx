@@ -106,7 +106,7 @@ export default function HowToChooseFirst3DPrinterGuide() {
             </div>
 
             <Image
-              src="/3d-printer-guide-hero.jpg"
+              src="/3d-printer-guide-hero.png"
               alt="3D Printer Selection Guide"
               width={800}
               height={400}

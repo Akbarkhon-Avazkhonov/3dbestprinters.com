@@ -101,7 +101,7 @@ export default function FDMvsSLAPrintersComparison() {
             </div>
 
             <Image
-              src="/fdm-vs-sla-comparison.jpg"
+              src="/fdm-vs-sla-comparison.png"
               alt="FDM vs SLA Printers Comparison"
               width={800}
               height={400}

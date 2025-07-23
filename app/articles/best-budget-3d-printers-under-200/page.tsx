@@ -101,7 +101,7 @@ export default function BestBudget3DPrintersUnder200() {
             </div>
 
             <Image
-              src="/budget-3d-printers.jpg"
+              src="/budget-3d-printers.png"
               alt="Budget 3D Printers"
               width={800}
               height={400}

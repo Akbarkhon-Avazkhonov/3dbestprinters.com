@@ -95,7 +95,7 @@ export default function Top10Best3DPrinters2024() {
             </div>
 
             <Image
-              src="/3d-printer-review-hero.jpg"
+              src="/3d-printer-review-hero.png"
               alt="Best 3D Printers 2024"
               width={800}
               height={400}

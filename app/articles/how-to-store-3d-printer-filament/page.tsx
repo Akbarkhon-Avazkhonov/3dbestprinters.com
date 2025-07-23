@@ -104,7 +104,7 @@ export default function HowToStore3DPrinterFilament() {
             </div>
 
             <Image
-              src="/filament-storage-tips.jpg"
+              src="/filament-storage-tips.png"
               alt="Proper Filament Storage"
               width={800}
               height={400}

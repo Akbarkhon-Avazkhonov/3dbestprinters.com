@@ -117,7 +117,7 @@ export default function CompleteFilamentTypesGuide2024() {
             </div>
 
             <Image
-              src="/filament-types-guide.jpg"
+              src="/filament-types-guide.png"
               alt="Filament Types Guide"
               width={800}
               height={400}
