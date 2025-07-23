@@ -93,7 +93,7 @@ export default function FilamentsPage() {
       author: "Elena Morrison",
       date: "January 18, 2024",
       category: "Materials",
-      image: "/filament-types-guide.jpg",
+      image: "/filament-types-guide.png",
     },
     {
       id: 2,
@@ -105,7 +105,7 @@ export default function FilamentsPage() {
       author: "Andrew Smith",
       date: "January 15, 2024",
       category: "Care",
-      image: "/filament-storage-tips.jpg",
+      image: "/filament-storage-tips.png",
     },
     {
       id: 3,
@@ -117,7 +117,7 @@ export default function FilamentsPage() {
       author: "Olivia Knight",
       date: "January 12, 2024",
       category: "Reviews",
-      image: "/filament-brands-comparison.jpg",
+      image: "/filament-brands-comparison.png",
     },
     {
       id: 4,
@@ -129,7 +129,7 @@ export default function FilamentsPage() {
       author: "Max Foster",
       date: "January 10, 2024",
       category: "Special",
-      image: "/special-filaments-overview.jpg",
+      image: "/special-filaments-overview.png",
     },
   ]
 
@@ -156,16 +156,40 @@ export default function FilamentsPage() {
       </header>
 
       <div className="container mx-auto px-4 py-8">
-        {/* Page Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-900 mb-4">Best 3D Printing Filaments</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Quality materials, expert reviews, and detailed guides for all types of 3D printing projects
-          </p>
-        </div>
+        {/* Hero Section with Background Image */}
+        <section className="relative mb-16 rounded-2xl overflow-hidden">
+          <div className="absolute inset-0">
+            <Image
+              src="/filament-hero-bg.png"
+              alt="3D Printing Filaments Collection"
+              width={1200}
+              height={400}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-green-900/80 to-green-700/60"></div>
+          </div>
+          <div className="relative text-center py-20 px-8 text-white">
+            <h1 className="text-5xl font-bold mb-4">Best 3D Printing Filaments</h1>
+            <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
+              Quality materials, expert reviews, and detailed guides for all types of 3D printing projects
+            </p>
+            <div className="flex justify-center space-x-4">
+              <Button size="lg" className="bg-white text-green-600 hover:bg-gray-100">
+                <Link href="#articles">Read Guides</Link>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white hover:text-green-600 bg-transparent"
+              >
+                <Link href="#products">View Materials</Link>
+              </Button>
+            </div>
+          </div>
+        </section>
 
         {/* Featured Articles Section */}
-        <section className="mb-16">
+        <section id="articles" className="mb-16">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-3xl font-bold text-gray-900">Expert Articles on Filaments</h2>
             <Badge variant="outline" className="text-green-600 border-green-200">
@@ -179,7 +203,7 @@ export default function FilamentsPage() {
                 <Card className="group hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden h-full">
                   <div className="relative">
                     <Image
-                      src={article.image || "/placeholder.svg?height=200&width=400&query=3d printing filament guide"}
+                      src={article.image || "/placeholder.svg"}
                       alt={article.title}
                       width={400}
                       height={200}
@@ -218,7 +242,7 @@ export default function FilamentsPage() {
         </section>
 
         {/* Products Section */}
-        <section className="mb-16">
+        <section id="products" className="mb-16">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-3xl font-bold text-gray-900">Recommended Filaments</h2>
             <Badge variant="outline" className="text-green-600 border-green-200">

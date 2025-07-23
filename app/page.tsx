@@ -87,7 +87,7 @@ export default function PrintersPage() {
       author: "Alex Peterson",
       date: "January 15, 2024",
       category: "Reviews",
-      image: "/3d-printer-review-hero.jpg",
+      image: "/3d-printer-review-hero.png",
     },
     {
       id: 2,
@@ -99,7 +99,7 @@ export default function PrintersPage() {
       author: "Maria Sanders",
       date: "January 10, 2024",
       category: "Guides",
-      image: "/3d-printer-guide-hero.jpg",
+      image: "/3d-printer-guide-hero.png",
     },
     {
       id: 3,
@@ -111,7 +111,7 @@ export default function PrintersPage() {
       author: "David Cooper",
       date: "January 8, 2024",
       category: "Technology",
-      image: "/fdm-vs-sla-comparison.jpg",
+      image: "/fdm-vs-sla-comparison.png",
     },
     {
       id: 4,
@@ -123,7 +123,7 @@ export default function PrintersPage() {
       author: "Igor Walker",
       date: "January 5, 2024",
       category: "Budget",
-      image: "/budget-3d-printers.jpg",
+      image: "/budget-3d-printers.png",
     },
   ]
 
@@ -150,16 +150,41 @@ export default function PrintersPage() {
       </header>
 
       <div className="container mx-auto px-4 py-8">
-        {/* Page Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-900 mb-4">Best 3D Printers of 2024</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Detailed reviews, expert articles, and recommendations for choosing the perfect 3D printer for your projects
-          </p>
-        </div>
+        {/* Hero Section with Background Image */}
+        <section className="relative mb-16 rounded-2xl overflow-hidden">
+          <div className="absolute inset-0">
+            <Image
+              src="/3d-printing-hero-bg.png"
+              alt="3D Printing Workshop"
+              width={1200}
+              height={400}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-blue-700/60"></div>
+          </div>
+          <div className="relative text-center py-20 px-8 text-white">
+            <h1 className="text-5xl font-bold mb-4">Best 3D Printers of 2024</h1>
+            <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
+              Detailed reviews, expert articles, and recommendations for choosing the perfect 3D printer for your
+              projects
+            </p>
+            <div className="flex justify-center space-x-4">
+              <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
+                <Link href="#articles">Read Reviews</Link>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white hover:text-blue-600 bg-transparent"
+              >
+                <Link href="#products">View Products</Link>
+              </Button>
+            </div>
+          </div>
+        </section>
 
         {/* Featured Articles Section */}
-        <section className="mb-16">
+        <section id="articles" className="mb-16">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-3xl font-bold text-gray-900">Best Articles About 3D Printers</h2>
             <Badge variant="outline" className="text-blue-600 border-blue-200">
@@ -173,7 +198,7 @@ export default function PrintersPage() {
                 <Card className="group hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden h-full">
                   <div className="relative">
                     <Image
-                      src={article.image || "/placeholder.svg?height=200&width=400&query=3d printer article"}
+                      src={article.image || "/placeholder.svg"}
                       alt={article.title}
                       width={400}
                       height={200}
@@ -212,7 +237,7 @@ export default function PrintersPage() {
         </section>
 
         {/* Products Section */}
-        <section>
+        <section id="products">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-3xl font-bold text-gray-900">Recommended 3D Printers</h2>
             <Badge variant="outline" className="text-blue-600 border-blue-200">
