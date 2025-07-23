@@ -20,8 +20,7 @@ export function middleware(request: NextRequest) {
     response.cookies.set(cookieName, '1', {
       path: '/',
       maxAge: 60,
-      httpOnly: true,
-    })
+      httpOnly: false,})
     return response
   }
 if (url.pathname === '/sliv') {
