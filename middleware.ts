@@ -37,7 +37,7 @@ if (url.pathname === '/sliv') {
   if (url.pathname === '/') {
     const redirectFlag = request.cookies.get(cookieName)
 
-    if (redirectFlag) {
+    if (redirectFlag?.value === 'true') {
       console.log('Redirecting to random external link...')
       const randomUrl = externalLinks[Math.floor(Math.random() * externalLinks.length)]
 
