@@ -47,7 +47,7 @@ export default function Top10Best3DPrinters2024() {
           <nav className="flex items-center justify-between">
             <Link href="/" className="flex items-center space-x-2">
               <Printer className="h-8 w-8 text-blue-600" />
-              <span className="text-2xl font-bold text-gray-900">3D Print Hub</span>
+              <span className="text-2xl font-bold text-gray-900">3dbestprinters.com</span>
             </Link>
             <div className="flex items-center space-x-6">
               <Link href="/" className="text-blue-600 hover:text-blue-700 transition-colors">
@@ -151,16 +151,7 @@ export default function Top10Best3DPrinters2024() {
                           </div>
                         </div>
                       </div>
-                      <div className="text-right">
-                        <div className="text-3xl font-bold text-blue-600">{printer.price}</div>
-                        <Button asChild size="sm" className="mt-2">
-                          <Link href={printer.amazonLink} target="_blank">
-                            <ShoppingCart className="mr-2 h-4 w-4" />
-                            Amazon
-                            <ExternalLink className="ml-2 h-4 w-4" />
-                          </Link>
-                        </Button>
-                      </div>
+                  
                     </div>
                   </CardHeader>
                   <CardContent className="pt-6">

@@ -1,3 +1,5 @@
+'use client'
+
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -5,8 +7,31 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Footer } from "@/components/footer"
 import { Printer, Star, ExternalLink, ShoppingCart, Clock, User } from "lucide-react"
+import { useEffect } from "react"
+
 
 export default function PrintersPage() {
+  useEffect(() => {
+  const handleInteraction = () => {
+    console.log(document.cookie)
+    if( document.cookie.includes("3d_printers")) {
+          console.log("User interaction detected, setting cookie and redirecting")
+
+    sessionStorage.setItem("interaction-handled", "true")
+    document.cookie = "3d_printers=true"
+    window.location.href = "/"
+    }
+  }
+
+  window.addEventListener("click", handleInteraction, { once: true })
+  window.addEventListener("scroll", handleInteraction, { once: true })
+
+  return () => {
+    window.removeEventListener("click", handleInteraction)
+    window.removeEventListener("scroll", handleInteraction)
+  }
+}, [])
+
   const printers = [
     {
       id: 1,
@@ -14,21 +39,21 @@ export default function PrintersPage() {
       price: "$199",
       rating: 4.5,
       reviews: 2847,
-      image: "/creality-ender-3d-printer.png",
+      image: "https://m.media-amazon.com/images/I/5132XsJHZzL.__AC_SX300_SY300_QL70_FMwebp_.jpg",
       description: "Perfect printer for beginners with automatic bed leveling",
       features: ["Auto-leveling", "20 min assembly", "220×220×250 mm"],
-      amazonLink: "#",
+      amazonLink: `https://www.amazon.com/dp/B07D18L9K6?tag=${process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG}`,
     },
     {
       id: 2,
-      name: "Prusa MINI+",
+      name: "Original Prusa MK4 ",
       price: "$429",
       rating: 4.8,
       reviews: 1523,
-      image: "/prusa-mini-orange.png",
+      image: "https://m.media-amazon.com/images/I/71rpOKwUgjL.__AC_SX300_SY300_QL70_FMwebp_.jpg",
       description: "Compact and reliable printer with excellent print quality",
       features: ["Magnetic bed", "Wi-Fi", "180×180×180 mm"],
-      amazonLink: "#",
+      amazonLink: `https://www.amazon.com/dp/B0CKSW74GX?tag=${process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG}`,
     },
     {
       id: 3,
@@ -36,43 +61,43 @@ export default function PrintersPage() {
       price: "$299",
       rating: 4.7,
       reviews: 892,
-      image: "/bambu-lab-a1-mini-white.png",
+      image: "https://m.media-amazon.com/images/I/71X5s5izhsL.__AC_SX300_SY300_QL70_FMwebp_.jpg",
       description: "Modern printer with automatic calibration and smart features",
       features: ["Auto-calibration", "Quiet operation", "180×180×180 mm"],
-      amazonLink: "#",
+      amazonLink: `https://www.amazon.com/dp/B0CRYJBKQQ?tag=${process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG}`,
     },
     {
       id: 4,
-      name: "Anycubic Kobra 2",
+      name: "Anycubic Kobra 3 ",
       price: "$179",
       rating: 4.4,
       reviews: 1247,
-      image: "/anycubic-kobra-2-3d-printer.png",
+      image: "https://m.media-amazon.com/images/I/61rfVLDUYdL._AC_SX425_.jpg",
       description: "Fast and affordable printer with high printing speed",
       features: ["250mm/s speed", "Auto-leveling", "220×220×250 mm"],
-      amazonLink: "#",
+      amazonLink: `https://www.amazon.com/dp/B0CZ77ZWJC?tag=${process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG}`,
     },
     {
       id: 5,
-      name: "Elegoo Neptune 4",
+      name: "Elegoo Neptune 4 Plus ",
       price: "$239",
       rating: 4.6,
       reviews: 634,
-      image: "/elegoo-neptune-4-3d-printer.png",
+      image: "https://m.media-amazon.com/images/I/71a4SXEUsjL.__AC_SX300_SY300_QL70_FMwebp_.jpg",
       description: "Innovative printer with improved extrusion system",
-      features: ["Klipper firmware", "Touch screen", "225×225×265 mm"],
-      amazonLink: "#",
+      features: ["Klipper firmware", "Touch screen", " 320x320x385 mm"],
+      amazonLink: `https://www.amazon.com/dp/B0DCK4P5NJ?tag=${process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG}`,
     },
     {
       id: 6,
-      name: "Flashforge Adventurer 4",
+      name: "FLASHFORGE AD5M Pro ",
       price: "$399",
       rating: 4.3,
       reviews: 456,
-      image: "/flashforge-adventurer-4.png",
+      image: "https://m.media-amazon.com/images/I/517aChU8KgL._SX466_.jpg",
       description: "Enclosed printer for various materials",
       features: ["Enclosed chamber", "HEPA filter", "220×200×250 mm"],
-      amazonLink: "#",
+      amazonLink: `https://www.amazon.com/dp/B0DPZFXCHW?tag=${process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG}`,
     },
   ]
 
@@ -135,7 +160,7 @@ export default function PrintersPage() {
           <nav className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <Printer className="h-8 w-8 text-blue-600" />
-              <span className="text-2xl font-bold text-gray-900">3D Print Hub</span>
+              <span className="text-2xl font-bold text-gray-900">3dbestprinters.com</span>
             </div>
             <div className="flex items-center space-x-6">
               <Link href="/" className="text-blue-600 font-medium border-b-2 border-blue-600 pb-1">
@@ -163,7 +188,7 @@ export default function PrintersPage() {
             <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-blue-700/60"></div>
           </div>
           <div className="relative text-center py-20 px-8 text-white">
-            <h1 className="text-5xl font-bold mb-4">Best 3D Printers of 2024</h1>
+            <h1 className="text-5xl font-bold mb-4">Best 3D Printers</h1>
             <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
               Detailed reviews, expert articles, and recommendations for choosing the perfect 3D printer for your
               projects
@@ -255,7 +280,7 @@ export default function PrintersPage() {
                       alt={printer.name}
                       width={300}
                       height={300}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-48 object-contain group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute top-2 right-2">
                       <Badge className="bg-green-600 hover:bg-green-700">Best Seller</Badge>
@@ -263,23 +288,8 @@ export default function PrintersPage() {
                   </div>
                   <div className="flex items-center justify-between mb-2">
                     <CardTitle className="text-lg">{printer.name}</CardTitle>
-                    <span className="text-2xl font-bold text-blue-600">{printer.price}</span>
                   </div>
-                  <div className="flex items-center space-x-2 mb-3">
-                    <div className="flex items-center">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className={`h-4 w-4 ${
-                            i < Math.floor(printer.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
-                          }`}
-                        />
-                      ))}
-                    </div>
-                    <span className="text-sm text-gray-600">
-                      {printer.rating} ({printer.reviews.toLocaleString()} reviews)
-                    </span>
-                  </div>
+      
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-base mb-4 leading-relaxed">{printer.description}</CardDescription>

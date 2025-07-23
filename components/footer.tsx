@@ -20,7 +20,7 @@ export function Footer() {
           <div className="col-span-1">
             <div className="flex items-center space-x-2 mb-4">
               <Printer className="h-8 w-8 text-blue-400" />
-              <span className="text-xl font-bold">3D Print Hub</span>
+              <span className="text-xl font-bold">3dbestprinters.com</span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
               Your trusted source for 3D printer reviews, filament guides, and expert recommendations to help you

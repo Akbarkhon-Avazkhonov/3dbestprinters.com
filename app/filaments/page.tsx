@@ -10,15 +10,15 @@ export default function FilamentsPage() {
   const filaments = [
     {
       id: 1,
-      name: "SUNLU PLA+ Filament",
+      name: "SUNLU PLA+2.0",
       price: "$22.99",
       rating: 4.6,
       reviews: 3247,
-      image: "/sunlu-pla-plus-filament.png",
+      image: "https://m.media-amazon.com/images/I/71wqFbe61eL._SX466_.jpg",
       description: "High-quality PLA+ filament with improved strength and smooth surface",
       specs: ["1.75mm", "1kg", "190-220°C", "Odorless"],
       colors: "20+ colors",
-      amazonLink: "#",
+      amazonLink: `https://www.amazon.com/dp/B0DGXFXP45?tag=${process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG_2}`,
     },
     {
       id: 2,
@@ -26,11 +26,11 @@ export default function FilamentsPage() {
       price: "$25.99",
       rating: 4.5,
       reviews: 1876,
-      image: "/overture-transparent-petg.png",
+      image: "https://m.media-amazon.com/images/I/71XUpeotB-L._AC_SX425_.jpg",
       description: "Durable PETG filament for functional parts with chemical resistance",
-      specs: ["1.75mm", "1kg", "220-250°C", "Transparent"],
+      specs: ["1.75mm", "2kg", "220-250°C", "Transparent"],
       colors: "15+ colors",
-      amazonLink: "#",
+      amazonLink: `https://www.amazon.com/dp/B0834428DQ?tag=${process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG_2}`,
     },
     {
       id: 3,
@@ -38,11 +38,11 @@ export default function FilamentsPage() {
       price: "$27.99",
       rating: 4.4,
       reviews: 2134,
-      image: "/hatchbox-abs-black.png",
+      image: "https://m.media-amazon.com/images/I/51ARTlswGZL._SY445_SX342_QL70_FMwebp_.jpg",
       description: "Professional ABS filament for strong and heat-resistant products",
       specs: ["1.75mm", "1kg", "220-250°C", "Heat-resistant"],
-      colors: "12+ colors",
-      amazonLink: "#",
+      colors: "8+ colors",
+      amazonLink: `https://www.amazon.com/dp/B00J0H6NNM?tag=${process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG_2}`,
     },
     {
       id: 4,
@@ -50,23 +50,23 @@ export default function FilamentsPage() {
       price: "$19.99",
       rating: 4.7,
       reviews: 1567,
-      image: "/geeetech-silk-rainbow-pla.png",
+      image: "https://m.media-amazon.com/images/I/416hpEM6ekL._SY445_SX342_QL70_FMwebp_.jpg",
       description: "Silky PLA filament with metallic shine for decorative items",
       specs: ["1.75mm", "1kg", "190-220°C", "Silky"],
       colors: "25+ colors",
-      amazonLink: "#",
+      amazonLink: `https://www.amazon.com/dp/B07QGV6D8P?tag=${process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG_2}`,
     },
     {
       id: 5,
-      name: "eSUN Wood PLA",
+      name: "ELEGOO Wood PLA",
       price: "$29.99",
       rating: 4.3,
       reviews: 892,
-      image: "/esun-wood-pla-natural.png",
+      image: "https://m.media-amazon.com/images/I/71iBsBNBbJL._SX466_.jpg",
       description: "Filament with wood fibers for creating items with wood texture",
       specs: ["1.75mm", "1kg", "190-220°C", "Wooden"],
-      colors: "5 shades",
-      amazonLink: "#",
+      colors: "25+ colors",
+      amazonLink: `https://www.amazon.com/dp/B0CW1FSSFK?tag=${process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG_2}`,
     },
     {
       id: 6,
@@ -74,11 +74,11 @@ export default function FilamentsPage() {
       price: "$39.99",
       rating: 4.8,
       reviews: 634,
-      image: "/priline-carbon-fiber-petg.png",
+      image: "https://m.media-amazon.com/images/I/71mCSUHElbL.__AC_SX300_SY300_QL70_FMwebp_.jpg",
       description: "Premium filament with carbon fibers for ultra-strong parts",
       specs: ["1.75mm", "1kg", "220-250°C", "Carbon"],
-      colors: "3 colors",
-      amazonLink: "#",
+      colors: "2 colors",
+      amazonLink: `https://www.amazon.com/dp/B07ZN44383?tag=${process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG_2}`,
     },
   ]
 
@@ -141,7 +141,7 @@ export default function FilamentsPage() {
           <nav className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <Zap className="h-8 w-8 text-green-600" />
-              <span className="text-2xl font-bold text-gray-900">3D Print Hub</span>
+              <span className="text-2xl font-bold text-gray-900">3dbestprinters.com</span>
             </div>
             <div className="flex items-center space-x-6">
               <Link href="/" className="text-gray-600 hover:text-green-600 transition-colors">
@@ -260,7 +260,7 @@ export default function FilamentsPage() {
                       alt={filament.name}
                       width={300}
                       height={300}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-48 object-contain group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute top-2 right-2">
                       <Badge className="bg-orange-600 hover:bg-orange-700">Bestseller</Badge>
@@ -268,23 +268,8 @@ export default function FilamentsPage() {
                   </div>
                   <div className="flex items-center justify-between mb-2">
                     <CardTitle className="text-lg">{filament.name}</CardTitle>
-                    <span className="text-2xl font-bold text-green-600">{filament.price}</span>
                   </div>
-                  <div className="flex items-center space-x-2 mb-3">
-                    <div className="flex items-center">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className={`h-4 w-4 ${
-                            i < Math.floor(filament.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
-                          }`}
-                        />
-                      ))}
-                    </div>
-                    <span className="text-sm text-gray-600">
-                      {filament.rating} ({filament.reviews.toLocaleString()} reviews)
-                    </span>
-                  </div>
+           
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-base mb-4 leading-relaxed">{filament.description}</CardDescription>

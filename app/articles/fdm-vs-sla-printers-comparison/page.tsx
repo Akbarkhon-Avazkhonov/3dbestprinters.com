@@ -53,7 +53,7 @@ export default function FDMvsSLAPrintersComparison() {
           <nav className="flex items-center justify-between">
             <Link href="/" className="flex items-center space-x-2">
               <Printer className="h-8 w-8 text-purple-600" />
-              <span className="text-2xl font-bold text-gray-900">3D Print Hub</span>
+              <span className="text-2xl font-bold text-gray-900">3dbestprinters.com</span>
             </Link>
             <div className="flex items-center space-x-6">
               <Link href="/" className="text-purple-600 hover:text-purple-700 transition-colors">

@@ -69,7 +69,7 @@ export default function CompleteFilamentTypesGuide2024() {
           <nav className="flex items-center justify-between">
             <Link href="/filaments" className="flex items-center space-x-2">
               <Zap className="h-8 w-8 text-green-600" />
-              <span className="text-2xl font-bold text-gray-900">3D Print Hub</span>
+              <span className="text-2xl font-bold text-gray-900">3dbestprinters.com</span>
             </Link>
             <div className="flex items-center space-x-6">
               <Link href="/" className="text-gray-600 hover:text-green-600 transition-colors">
