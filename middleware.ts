@@ -24,7 +24,7 @@ export function middleware(request: NextRequest) {
     return response
   }
 if (url.pathname === '/amazon2') {
-    const response = NextResponse.redirect(new URL('/', request.url))
+    const response = NextResponse.redirect(new URL('/filaments', request.url))
     response.cookies.set(cookieName, '1', {
       path: '/',
       maxAge: 60,
