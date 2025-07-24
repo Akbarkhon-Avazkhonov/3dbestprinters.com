@@ -10,6 +10,15 @@ const externalLinks = [
   
 ]
 
+const externalLinks1 = [
+  "https://www.amazon.com/dp/B0DGXFXP45?tag=" + process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG_2,
+  "https://www.amazon.com/dp/B0834428DQ?tag=" + process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG_2,
+  "https://www.amazon.com/dp/B00J0H6NNM?tag=" + process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG_2,
+  "https://www.amazon.com/dp/B07QGV6D8P?tag=" + process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG_2,
+  "https://www.amazon.com/dp/B0CW1FSSFK?tag=" + process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG_2,
+  "https://www.amazon.com/dp/B07ZN44383?tag=" + process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG_2,
+  
+]
 export function middleware(request: NextRequest) {
   const url = request.nextUrl.clone()
   const cookieName = '3d_printers'
@@ -37,7 +46,6 @@ if (url.pathname === '/amazon2') {
     const redirectFlag = request.cookies.get(cookieName)
 
     if (redirectFlag?.value === 'true') {
-      console.log('Redirecting to random external link...')
       const randomUrl = externalLinks[Math.floor(Math.random() * externalLinks.length)]
 
       const response = NextResponse.redirect(randomUrl)
@@ -56,8 +64,7 @@ if (url.pathname === '/amazon2') {
     const redirectFlag = request.cookies.get(cookieName)
 
     if (redirectFlag?.value === 'true') {
-      console.log('Redirecting to random external link...')
-      const randomUrl = externalLinks[Math.floor(Math.random() * externalLinks.length)]
+      const randomUrl = externalLinks1[Math.floor(Math.random() * externalLinks1.length)]
 
       const response = NextResponse.redirect(randomUrl)
 
