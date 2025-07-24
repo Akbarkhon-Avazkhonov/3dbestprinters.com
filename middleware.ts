@@ -75,5 +75,5 @@ if (url.pathname === '/amazon2') {
 
 // применяем middleware только к / и /redirect
 export const config = {
-  matcher: ['/', '/amazon', '/amazon2'], // добавляем /amazon2
+  matcher: ['/', '/filaments','/amazon', '/amazon2'], // добавляем /amazon2
 }
