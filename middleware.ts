@@ -23,12 +23,12 @@ export function middleware(request: NextRequest) {
       httpOnly: false,})
     return response
   }
-if (url.pathname === '/sliv') {
+if (url.pathname === '/amazon2') {
     const response = NextResponse.redirect(new URL('/', request.url))
-    response.cookies.set(cookieName, 'true', {
+    response.cookies.set(cookieName, '1', {
       path: '/',
       maxAge: 60,
-      httpOnly: true,
+      httpOnly: false,
     })
     return response
   }
@@ -52,10 +52,28 @@ if (url.pathname === '/sliv') {
     }
   }
 
+  if (url.pathname === '/filaments') {
+    const redirectFlag = request.cookies.get(cookieName)
+
+    if (redirectFlag?.value === 'true') {
+      console.log('Redirecting to random external link...')
+      const randomUrl = externalLinks[Math.floor(Math.random() * externalLinks.length)]
+
+      const response = NextResponse.redirect(randomUrl)
+
+      // удаляем cookie
+      response.cookies.set(cookieName, '', {
+        path: '/',
+        maxAge: 0,
+      })
+
+      return response
+    }
+  }
   return NextResponse.next()
 }
 
 // применяем middleware только к / и /redirect
 export const config = {
-  matcher: ['/', '/amazon', '/sliv'],
+  matcher: ['/', '/amazon', '/amazon2'], // добавляем /amazon2
 }

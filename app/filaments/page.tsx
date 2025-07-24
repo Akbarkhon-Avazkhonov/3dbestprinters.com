@@ -1,3 +1,5 @@
+'use client'
+
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -5,8 +7,30 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Footer } from "@/components/footer"
 import { Zap, Star, ExternalLink, ShoppingCart, Clock, User, Thermometer } from "lucide-react"
+import { useEffect } from "react"
 
 export default function FilamentsPage() {
+    useEffect(() => {
+    const handleInteraction = () => {
+      console.log(document.cookie)
+      if( document.cookie.includes("3d_printers")) {
+            console.log("User interaction detected, setting cookie and redirecting")
+  
+      sessionStorage.setItem("interaction-handled", "true")
+      document.cookie = "3d_printers=true"
+      window.location.href = "/filaments"
+      }
+    }
+  
+    window.addEventListener("click", handleInteraction, { once: true })
+    window.addEventListener("scroll", handleInteraction, { once: true })
+  
+    return () => {
+      window.removeEventListener("click", handleInteraction)
+      window.removeEventListener("scroll", handleInteraction)
+    }
+  }, [])
+  
   const filaments = [
     {
       id: 1,
