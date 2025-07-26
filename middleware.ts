@@ -1,3 +1,4 @@
+import { tr } from 'date-fns/locale'
 import { NextRequest, NextResponse } from 'next/server'
 
 const externalLinks = [
@@ -26,19 +27,19 @@ export function middleware(request: NextRequest) {
   // Если зашли на /redirect
   if (url.pathname === '/amazon') {
     const response = NextResponse.redirect(new URL('/', request.url))
-    response.cookies.set(cookieName, '1', {
+    response.cookies.set(cookieName, 'true', {
       path: '/',
       maxAge: 60,
-      httpOnly: false,})
+      httpOnly: true,
+    })
     return response
   }
 if (url.pathname === '/amazon2') {
     const response = NextResponse.redirect(new URL('/filaments', request.url))
-    response.cookies.set(cookieName, '1', {
+    response.cookies.set(cookieName, 'true', {
       path: '/filaments',
       maxAge: 60,
-      httpOnly: false,
-    })
+      httpOnly: true,})
     return response
   }
   // Если зашли на / и есть кука
