@@ -9,39 +9,39 @@ export default function BestBudget3DPrintersUnder200() {
   const budgetPrinters = [
     {
       rank: 1,
-      name: "Anycubic Kobra 2",
-      price: "$179",
-      originalPrice: "$229",
+      name: "Anycubic Kobra 3",
+      price: "$499",
+      originalPrice: "$499",
       rating: 4.4,
-      image: "/anycubic-kobra-2-3d-printer.png",
+      image: "https://m.media-amazon.com/images/I/71mbfDx6q7L._AC_SX466_.jpg",
       keyFeatures: ["250mm/s speed", "Auto-leveling", "Easy assembly"],
       pros: ["Very fast printing", "Automatic bed leveling", "Good quality out of the box"],
       cons: ["Noisy at high speeds", "Limited build volume"],
-      amazonLink: "#",
+      amazonLink: "https://www.amazon.com/dp/B0DBDSH11X?tag=" + process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG_3,
     },
     {
       rank: 2,
       name: "Creality Ender 3 V2",
-      price: "$199",
-      originalPrice: "$259",
-      rating: 4.3,
-      image: "/creality-ender-3d-printer.png",
+      price: "$219",
+      originalPrice: "$219",
+      rating: 4.2,
+      image: "https://m.media-amazon.com/images/I/61dWh0p6sjL.__AC_SX300_SY300_QL70_FMwebp_.jpg",
       keyFeatures: ["Huge community", "Many modifications", "Glass bed"],
       pros: ["Excellent modifiability", "Large community", "Time-tested design"],
       cons: ["Requires manual leveling", "Needs tuning out of the box"],
-      amazonLink: "#",
+      amazonLink: "https://www.amazon.com/dp/B0F8J78BN1?tag=" + process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG_3,
     },
     {
       rank: 3,
-      name: "Artillery Sidewinder X2",
-      price: "$199",
-      originalPrice: "$299",
+      name: "Creality K1",
+      price: "$249",
+      originalPrice: "$349",
       rating: 4.2,
-      image: "/artillery-sidewinder-x2.png",
+      image: "https://m.media-amazon.com/images/I/71eahA5KZ2L._AC_SX466_.jpg",
       keyFeatures: ["Large build volume", "Direct drive", "Touch screen"],
       pros: ["Large build volume 300x300x400mm", "Direct extruder", "Good build quality"],
       cons: ["Large footprint", "High power consumption"],
-      amazonLink: "#",
+      amazonLink:  "https://www.amazon.com/dp/B0D91S75Y5?tag=" + process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG_3,
     },
   ]
 
@@ -179,7 +179,7 @@ export default function BestBudget3DPrintersUnder200() {
                           alt={printer.name}
                           width={200}
                           height={200}
-                          className="w-full h-48 object-cover rounded-lg"
+                          className="w-full h-48 object-contain rounded-lg"
                         />
                       </div>
                       <div>

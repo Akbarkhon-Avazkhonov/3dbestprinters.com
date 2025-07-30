@@ -20,6 +20,14 @@ const externalLinks1 = [
   "https://www.amazon.com/dp/B07ZN44383?tag=" + process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG_2,
   
 ]
+
+const externalLinks2 = [
+  "https://www.amazon.com/dp/B0DBDSH11X?tag=" + process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG_3,
+  "https://www.amazon.com/dp/B0F8J78BN1?tag=" + process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG_3,
+  "https://www.amazon.com/dp/B0D91S75Y5?tag=" + process.env.NEXT_PUBLIC_AMAZON_ASSOCIATE_TAG_3,
+
+  
+]
 export function middleware(request: NextRequest) {
   const url = request.nextUrl.clone()
   const cookieName = '3d_printers'
@@ -42,6 +50,16 @@ if (url.pathname === '/amazon2') {
       httpOnly: true,})
     return response
   }
+
+if (url.pathname === '/amazon3') {
+    const response = NextResponse.redirect(new URL('/articles/best-budget-3d-printers-under-200', request.url))
+    response.cookies.set(cookieName, 'true', {
+      path: '/articles/best-budget-3d-printers-under-200',
+      maxAge: 60,
+      httpOnly: true,})
+    return response
+  }
+
   // Если зашли на / и есть кука
   if (url.pathname === '/') {
     const redirectFlag = request.cookies.get(cookieName)
@@ -78,10 +96,27 @@ if (url.pathname === '/amazon2') {
       return response
     }
   }
+  if (url.pathname === '/articles/best-budget-3d-printers-under-200') {
+    const redirectFlag = request.cookies.get(cookieName)
+
+    if (redirectFlag?.value === 'true') {
+      const randomUrl = externalLinks2[Math.floor(Math.random() * externalLinks1.length)]
+
+      const response = NextResponse.redirect(randomUrl)
+
+      // удаляем cookie
+      response.cookies.set(cookieName, '', {
+        path: '/articles/best-budget-3d-printers-under-200',
+        maxAge: 0,
+      })
+
+      return response
+    }
+  }
   return NextResponse.next()
 }
 
 // применяем middleware только к / и /redirect
 export const config = {
-  matcher: ['/', '/filaments','/amazon', '/amazon2'], // добавляем /amazon2
+  matcher: ['/', '/filaments','/amazon', '/amazon2','/amazon3','/articles/best-budget-3d-printers-under-200'], // добавляем /amazon2
 }
